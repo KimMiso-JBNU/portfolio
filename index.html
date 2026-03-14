@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>보자기 포트폴리오</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-nav-wrap">
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a class="site-nav__link site-nav__link--active" href="index.html">Home</a>
+      <a class="site-nav__link" href="about.html">About</a>
+      <a class="site-nav__link" href="#" id="worksNavLink">Works</a>
+      <a class="site-nav__link" href="#cardStack">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="hero" aria-label="보자기 포트폴리오 첫 화면">
+      <div class="hero-image-frame">
+        <img src="bojagi.jpg" alt="보자기 포트폴리오 메인 이미지" class="hero-image" id="heroImage">
+        <div class="hero-copy">
+          <p class="eyebrow">Bojagi Portfolio</p>
+          <h1>매듭을 풀며<br>저를 소개합니다</h1>
+          <p class="description">
+            한국의 보자기 문화처럼, 한 겹씩 펼칠수록 저의 이야기와 작업이 드러나는 포트폴리오입니다.
+          </p>
+          <p class="hint" id="heroHint">보자기 매듭을 클릭하면 정보가 순서대로 나타납니다.</p>
+        </div>
+        <button
+          id="knotButton"
+          class="knot-button"
+          type="button"
+          aria-label="보자기 매듭을 클릭해 포트폴리오 펼치기"
+        >
+          <span class="knot-pulse"></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="story" aria-live="polite">
+      <div class="story-header">
+        <p class="eyebrow">Unfolded Layers</p>
+        <h2>펼쳐지는 소개</h2>
+      </div>
+      <div id="cardStack" class="card-stack"></div>
+    </section>
+  </main>
+
+  <section class="works-stage" id="worksStage" aria-hidden="true">
+    <div class="works-stage__panel">
+      <div class="works-stage__header">
+        <div>
+          <p class="eyebrow">Works Archive</p>
+          <h2>작업과 기록</h2>
+        </div>
+        <button id="closeWorksButton" class="works-stage__close" type="button">돌아가기</button>
+      </div>
+
+      <div class="works-image-frame">
+        <img src="works.jpg" alt="작업 내역 이미지" class="works-image">
+        <button class="works-hotspot works-hotspot--hackathon" data-work-id="hackathon" type="button" aria-label="해커톤 참여 작업 보기"></button>
+        <button class="works-hotspot works-hotspot--portfolio" data-work-id="portfolio-award" type="button" aria-label="포트폴리오 공모전 수상 작업 보기"></button>
+        <button class="works-hotspot works-hotspot--grade" data-work-id="grade-award" type="button" aria-label="성적 우수 총장상 보기"></button>
+        <button class="works-hotspot works-hotspot--roadmap" data-work-id="roadmap-award" type="button" aria-label="전공 진로 탐색 로드맵 공모전 보기"></button>
+      </div>
+      <p class="works-stage__guide">각 글자 영역을 클릭하면 연결된 이미지가 열립니다.</p>
+    </div>
+  </section>
+
+  <section class="viewer" id="worksViewer" aria-hidden="true">
+    <div class="viewer__backdrop" data-close-viewer="true"></div>
+    <div class="viewer__panel">
+      <button class="viewer__close" id="closeViewerButton" type="button">닫기</button>
+      <p class="eyebrow">Selected Work</p>
+      <h3 id="viewerTitle"></h3>
+      <div class="viewer__content" id="viewerContent">
+        <p class="viewer__placeholder">여기에 연결할 이미지 파일명을 나중에 지정하면 실제 이미지가 열리도록 준비해두었습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <template id="cardTemplate">
+    <article class="info-card" hidden>
+      <span class="card-order"></span>
+      <h3 class="card-title"></h3>
+      <p class="card-text"></p>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
